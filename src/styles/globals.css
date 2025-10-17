@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Déclare les tokens de couleurs (disponibles ensuite en text-*, bg-*, ring-*, etc.) */
+@theme {
+  --color-cream: #F6F2E9;
+  --color-charcoal: #111111;
+  --color-gold: #C6A864;
+  --color-deepgreen: #1B4332;
+}
+
+:root { color-scheme: light; }
+html, body, #root { height: 100%; }
+/* ici on peut utiliser les utilitaires car les tokens sont connus */
+body { @apply antialiased text-charcoal; }
+
+.container-xl { @apply max-w-6xl mx-auto px-4 sm:px-6; }
+.btn {
+  /* on utilise la shadow par défaut pour éviter un token shadow custom */
+  @apply inline-flex items-center justify-center rounded-2xl px-5 py-3 font-medium shadow transition;
+}
+.btn-primary { @apply bg-deepgreen text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-gold; }
+.badge { @apply inline-flex items-center gap-2 rounded-full bg-gold/15 text-charcoal px-3 py-1 text-sm; }
+
+.card { @apply bg-white shadow rounded-2xl p-6; }
+.section { @apply py-16 sm:py-24; }
